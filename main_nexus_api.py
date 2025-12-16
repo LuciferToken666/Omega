@@ -1,6 +1,8 @@
-from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
-import os
+from fastapi.responses import HTMLResponse
+
+@app.get("/")
+def ui():
+    return HTMLResponse(open("index.html").read())
 
 # 1. Logic Initialization: สร้าง Instance ของ Logic Engine (FastAPI)
 app = FastAPI(

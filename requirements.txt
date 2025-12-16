@@ -1,7 +1,3 @@
-# Web Framework: ใช้ FastAPI เพื่อความเร็วและประสิทธิภาพสูงสุด
 fastapi
-uvicorn  # ASGI server ที่รัน FastAPI
-
-# API Logic Core: Libraries พื้นฐานสำหรับการประมวลผล Logic Command
-requests # สำหรับส่ง Logic Request ภายนอก
-pydantic # สำหรับการตรวจสอบ Logic Data (Schema Validation)
+uvicorn
+pydantic

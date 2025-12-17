@@ -72,3 +72,15 @@ async def execute_logic(data: LogicCommand):
 def health():
     return {"status": "Omega Core Running"}
 
+import subprocess
+from flask import Flask, jsonify
+
+# สร้างประตูรับคำสั่งจากสมอง
+@app.route("/execute-expand", methods=["POST"])
+def execute_expand():
+    try:
+        # สั่งรันไฟล์ auto_expand.sh ที่อยู่ในนี้
+        result = subprocess.run(['sh', './auto_expand.sh'], capture_output=True, text=True)
+        return jsonify({"status": "Success", "output": result.stdout})
+    except Exception as e:
+        return jsonify({"status": "Error", "message": str(e)}), 500
